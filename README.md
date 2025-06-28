@@ -54,11 +54,15 @@ curl -LO https://storage.googleapis.com/minikube/releases/latest/minikube-linux-
 sudo install minikube-linux-amd64 /usr/local/bin/minikube
 ```
 
+------
+
 ## 🔥 Minikube Setup
 ```bash
 minikube start --driver=docker --memory=4096 --cpus=2
 eval $(minikube docker-env)
 ```
+
+----
 
 ## 🐳 Build Docker Images (Inside Minikube Docker)
 ```bash
@@ -71,6 +75,7 @@ check image
 ```bash
 docker image
 ```
+---
 
 ## ⚙️ Kubernetes Deployment
 
@@ -82,6 +87,7 @@ kubectl apply -f deployments/
 ```bash
 kubectl apply -f services/
 ```
+---
 
 ## ✅ Verify Components
 
@@ -94,6 +100,8 @@ kubectl get pods -o wide
 ```bash
 kubectl get svc
 ```
+
+---
 
 ## 🔄 Inter-Service Communication (Internal Test)
 ### Step 1: Enter Gateway Pod
@@ -109,6 +117,8 @@ curl http://order-service:3002/health
 ```
 
 ### 📸 Screenshot responses as screenshots/logs.png
+
+----
 
 ## 🌐 External Testing (Port Forwarding)
 ### Forward Gateway Service
@@ -126,6 +136,7 @@ curl http://localhost:9090/orders
 
 ### 📸 Screenshot results as screenshots/service-test.png
 
+----
 
 ## 🧪 Health & Debugging
 Check Logs
@@ -139,6 +150,9 @@ kubectl describe pod <pod-name>
 kubectl describe svc <service-name>
 ```
 
+----
+
+
 ## 🛠️ Troubleshooting Tips
 
 | Issue                    | Solution                                                    |
@@ -148,12 +162,15 @@ kubectl describe svc <service-name>
 | No response on curl      | Use `kubectl exec` into pods and debug with internal `curl` |
 
 
+-------
+
+
 ## 🧾 Deliverables
 
->> Kubernetes deployment and service YAMLs
->> Screenshots folder:
-   ->pods.png: Pod status
-   ->logs.png: Internal curl responses
-   ->service-test.png: External test via port-forward
->> This README.md
+-Kubernetes deployment and service YAMLs <br>
+-Screenshots folder: <br>
+   -pods.png: Pod status <br>
+   -logs.png: Internal curl responses <br>
+   -service-test.png: External test via port-forward <br>
+-This README.md <br>
 
