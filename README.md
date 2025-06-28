@@ -15,23 +15,24 @@ The application is deployed locally using Minikube, and the services communicate
 
 ## 📁 Project Structure
 
+```
 submission/
 ├── deployments/
-│ ├── user-service.yaml
-│ ├── product-service.yaml
-│ ├── order-service.yaml
-│ └── gateway-service.yaml
+│   ├── user-service.yaml
+│   ├── product-service.yaml
+│   ├── order-service.yaml
+│   └── gateway-service.yaml
 ├── services/
-│ ├── user-service.yaml
-│ ├── product-service.yaml
-│ ├── order-service.yaml
-│ └── gateway-service.yaml
+│   ├── user-service.yaml
+│   ├── product-service.yaml
+│   ├── order-service.yaml
+│   └── gateway-service.yaml
 ├── screenshots/
-│ ├── pods.png
-│ ├── logs.png
-│ └── service-test.png
-└── README.md
-
+│   ├── pods.png               # Screenshot of running pods
+│   ├── logs.png               # Screenshot of internal curl tests
+│   └── service-test.png       # Screenshot of external API test via port-forward
+└── README.md                  # Project documentation and deployment guide
+```
 
 ---
 
@@ -66,10 +67,10 @@ eval $(minikube docker-env)
 
 ## 🐳 Build Docker Images (Inside Minikube Docker)
 ```bash
-docker build -t user-service:latest ./user
-docker build -t product-service:latest ./product
-docker build -t order-service:latest ./order
-docker build -t gateway-service:latest ./gateway
+docker build -t user-service:latest .
+docker build -t product-service:latest .
+docker build -t order-service:latest .
+docker build -t gateway-service:latest .
 ```
 check image
 ```bash
