@@ -90,5 +90,70 @@ kubectl apply -f services/
 kubectl get pods -o wide
 ```
 
+### View All Services
+```bash
+kubectl get svc
+```
 
+## 🔄 Inter-Service Communication (Internal Test)
+### Step 1: Enter Gateway Pod
+```bash
+kubectl get pods -l app=gateway
+kubectl exec -it <gateway-pod-name> -- sh
+```
+### Step 2: Test with Curl
+```bash
+curl http://user-service:3000/health
+curl http://product-service:3001/health
+curl http://order-service:3002/health
+```
+
+### 📸 Screenshot responses as screenshots/logs.png
+
+## 🌐 External Testing (Port Forwarding)
+### Forward Gateway Service
+
+```bash
+kubectl port-forward svc/gateway-service 9090:3003
+```
+### Test from Browser or Curl
+
+```bash
+curl http://localhost:9090/users
+curl http://localhost:9090/products
+curl http://localhost:9090/orders
+```
+
+### 📸 Screenshot results as screenshots/service-test.png
+
+
+## 🧪 Health & Debugging
+Check Logs
+```bash
+kubectl logs <pod-name>
+```
+
+### Describe Resources
+```bash
+kubectl describe pod <pod-name>
+kubectl describe svc <service-name>
+```
+
+## 🛠️ Troubleshooting Tips
+
+| Issue                    | Solution                                                    |
+| ------------------------ | ----------------------------------------------------------- |
+| `ImagePullBackOff`       | Use `imagePullPolicy: Never` and build inside Minikube      |
+| Port 8080 already in use | Try `kubectl port-forward svc/gateway-service 9090:3003`    |
+| No response on curl      | Use `kubectl exec` into pods and debug with internal `curl` |
+
+
+## 🧾 Deliverables
+
+>> Kubernetes deployment and service YAMLs
+>> Screenshots folder:
+   ->pods.png: Pod status
+   ->logs.png: Internal curl responses
+   ->service-test.png: External test via port-forward
+>> This README.md
 
