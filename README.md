@@ -102,6 +102,8 @@ kubectl get pods -o wide
 kubectl get svc
 ```
 
+![Screenshot 2025-06-28 170054](https://github.com/user-attachments/assets/78deca1f-8746-4b31-9e89-dd4e70f49fef)<br>
+
 ---
 
 ## 🔄 Inter-Service Communication (Internal Test)
@@ -118,6 +120,9 @@ curl http://order-service:3002/health
 ```
 
 ### 📸 Screenshot responses as screenshots/logs.png
+
+![Screenshot 2025-06-28 172046](https://github.com/user-attachments/assets/cd9803f3-c5ab-4cee-af44-906279106f3c)<br>
+
 
 ----
 
@@ -136,6 +141,10 @@ curl http://localhost:9090/orders
 ```
 
 ### 📸 Screenshot results as screenshots/service-test.png
+
+![Screenshot 2025-06-28 171001](https://github.com/user-attachments/assets/a1abaf19-f699-4744-ac8b-50252d190579)<br>
+
+![Screenshot 2025-06-28 171037](https://github.com/user-attachments/assets/59f22c3a-3c3b-4208-af42-8ec30253e849)<br>
 
 ----
 
